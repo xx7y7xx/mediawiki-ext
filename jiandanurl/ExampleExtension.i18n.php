@@ -14,5 +14,6 @@ $magicWords = array();
  * @author Your Name (YourUserName)
  */
 $magicWords['en'] = array(
-   'example' => array( 0, 'example' ),
+   //'example' => array( 0, 'example' ),
+   'jiandanurl' => array( 0, 'jiandanurl' ),
 );

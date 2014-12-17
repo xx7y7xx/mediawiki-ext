@@ -41,18 +41,22 @@ function ExampleExtensionSetupParserFunction( &$parser ) {
    // Create a function hook associating the "example" magic word with the
    // ExampleExtensionRenderParserFunction() function. See: the section 
    // 'setFunctionHook' below for details.
-   $parser->setFunctionHook( 'example', 'ExampleExtensionRenderParserFunction' );
+   //$parser->setFunctionHook( 'example', 'ExampleExtensionRenderParserFunction' );
+   $parser->setFunctionHook( 'jiandanurl', 'ExampleExtensionRenderParserFunction' );
  
    // Return true so that MediaWiki continues to load extensions.
    return true;
 }
  
 // Render the output of the parser function.
-function ExampleExtensionRenderParserFunction( $parser, $param1 = '', $param2 = '', $param3 = '' ) {
+//function ExampleExtensionRenderParserFunction( $parser, $param1 = '', $param2 = '', $param3 = '' ) {
+function ExampleExtensionRenderParserFunction( $parser, $param1 = '') {
  
    // The input parameters are wikitext with templates expanded.
    // The output should be wikitext too.
-   $output = "param1 is $param1 and param2 is $param2 and param3 is $param3";
+   //$output = "param1 is $param1 and param2 is $param2 and param3 is $param3";
+   $output = "<html><a href=\"file://192.168.2.21/share/jiandan001/prj/rdfz/$param1\">$param1</a></html>";
  
-   return $output;
+   //return $output;
+   return array( $output, 'noparse' => true, 'isHTML' => true );
 }
